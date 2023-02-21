@@ -118,6 +118,7 @@ int	ft_sub_putpointer (uintptr_t point)
 		if (10 <= temp && temp <= 16)
 			size += ft_putchar (temp - 10 + 'a');
 	}
+	return (size);
 }
 
 int	ft_putpointer (uintptr_t point)
