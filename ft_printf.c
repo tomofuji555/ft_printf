@@ -79,7 +79,7 @@ int	ft_puthexa(unsigned int num)
 	return (size);
 }
 
-int	ft_puthexa_big(unsigned int num)
+int	ft_puthexa_upper(unsigned int num)
 {
 	int	temp;
 	int	size;
@@ -88,7 +88,7 @@ int	ft_puthexa_big(unsigned int num)
 	size = 0;
 	if (num > 0)
 	{
-		ft_puthexa_big (num / 16);
+		ft_puthexa_upper (num / 16);
 		temp = (num % 16);
 		if (temp >= 0 && temp <= 9)
 		{
@@ -102,7 +102,33 @@ int	ft_puthexa_big(unsigned int num)
 	return (size);
 }
 
+int	ft_sub_putpointer (uintptr_t point)
+{
+	int	temp;
+	int	size;
 
+	temp = 0;
+	size = 0;
+	if (point > 0)
+	{
+		ft_sub_putpointer(point / 16);
+		temp = (point % 16);
+		if (temp >= 0 && temp <= 9)
+			size += ft_putchar (temp + '0');
+		if (10 <= temp && temp <= 16)
+			size += ft_putchar (temp - 10 + 'a');
+	}
+}
+
+int	ft_putpointer (uintptr_t point)
+{
+	int size;
+
+	size = 0;
+	size += write (1, "0x", 2);
+	size += ft_sub_putpointer (point);
+	return (size);
+}
 
 int	judge_format(va_list ap, const char *c)
 {
@@ -115,14 +141,14 @@ int	judge_format(va_list ap, const char *c)
 		size += ft_putstr(va_arg (ap, char *));
 	else if (*c == 'd' || *c == 'i')
 		size += ft_putnbr(va_arg (ap, int));
-    // else if (*c == 'p')
-	// 	size += ft_putpointer((uintptr_t)va_arg (ap, void *));
+    else if (*c == 'p')
+		size += ft_putpointer((uintptr_t)va_arg (ap, void *));
     // else if (*c == 'u')
 	// 	size += uns_num_work(va_arg (ap, unsigned int));
 	else if (*c == 'x')
 		size += ft_puthexa(va_arg (ap, unsigned int));
 	else if (*c == 'X')
-		size += ft_puthexa_big(va_arg (ap, unsigned int));
+		size += ft_puthexa_upper(va_arg (ap, unsigned int));
     // else if (*c == '%')
 	// 	size += ft_printpercentage();
 	return (size);
@@ -201,6 +227,7 @@ int main (void)
 	printf ("printf:   %X\n", X);
 	ft_printf ("ft_printf:%X\n", X);
 
-	int *ptr = 321;
-	printf ("%p\n", ptr);
+	int ptr = 321;
+	printf ("%p\n", &ptr);
+	ft_printf ("%p\n", &ptr);
 }
