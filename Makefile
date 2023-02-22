@@ -1,7 +1,7 @@
 NAME = libftprintf.a
 CC = cc
-CFLAGS = -Wall -Wextra -Warrior
-SRCS = ft_printf.c
+CFLAGS = -Wall -Wextra -Werror
+SRCS = ft_printf.c ft_pointer_work.c 
 OBJS =	$(SRCS:.c=.o)
 
 all :	$(NAME)
@@ -17,4 +17,4 @@ fclean:	clean
 
 re:	fcean all
 
-.PHONY	all clean fclean re
+.PHONY:	all clean fclean re
