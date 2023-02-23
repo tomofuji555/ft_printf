@@ -259,12 +259,18 @@ int	ft_printf(const char *format, ...)
 // 	printf ("\n");
 // }
 
-// int main ()
-// {
+int main ()
+{
 	// printf (" NULL %s NULL ", NULL);
 	// ft_printf (" NULL %s NULL ", NULL);
 
-// 	void *ptr = -1;
-// 	printf (" %p \n", ptr);
-// 	ft_printf (" %p ", ptr);
-// }
+	char *str = "aiueo";
+	int z = printf ("%s\n", str);
+	printf ("%d\n", z);
+
+	int	ptr = 567;
+	int x = printf (" %p \n", &ptr);
+	int y = ft_printf (" %p ", &ptr);
+	printf ("%d\n", x);
+	printf ("%d\n", y);
+}
