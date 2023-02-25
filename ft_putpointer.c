@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 14:55:53 by tofujiwa          #+#    #+#             */
-/*   Updated: 2023/02/23 13:23:22 by marvin           ###   ########.fr       */
+/*   Updated: 2023/02/24 20:29:53 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,17 @@ static int	point_counter (uintptr_t point)
 
 static void	ft_sub_putpointer (uintptr_t point)
 {
-	int	temp;
+	char	c;
 
-	temp = 0;
+	c = 0;
 	if (point > 0)
 	{
-		temp = (point % 16);
 		ft_sub_putpointer(point / 16);
-		if (temp >= 0 && temp <= 9)
-			ft_putchar (temp + '0');
-		if (10 <= temp && temp <= 16)
-			ft_putchar (temp - 10 + 'a');
+		c = (point % 16);
+		if (c >= 0 && c <= 9)
+			ft_putchar (c + '0');
+		if (10 <= c && c <= 16)
+			ft_putchar (c - 10 + 'a');
 	}
 }
 
