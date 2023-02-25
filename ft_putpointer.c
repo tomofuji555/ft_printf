@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pointer_work.c                                  :+:      :+:    :+:   */
+/*   ft_putpointer.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 14:55:53 by tofujiwa          #+#    #+#             */
-/*   Updated: 2023/02/24 20:29:53 by marvin           ###   ########.fr       */
+/*   Updated: 2023/02/25 22:49:00 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 static int	point_counter (uintptr_t point)
 {
-	int			len;
+	int	size;
 	
-	len = 0;
+	size = 0;
 	while (point > 0)
 	{
 		point = point / 16;
-		len++;
+		size++;
 	}
-	return (len);
+	return (size);
 }
 
 static void	ft_sub_putpointer (uintptr_t point)

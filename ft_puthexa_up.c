@@ -14,15 +14,15 @@
 
 static int	hexa_up_counter (unsigned int num)
 {
-	int			len;
+	int	size;
 	
-	len = 0;
+	size = 0;
 	while (num > 0)
 	{
 		num = num / 16;
-		len++;
+		size++;
 	}
-	return (len);
+	return (size);
 }
 
 static void	ft_sub_puthexa_up(unsigned int num)
