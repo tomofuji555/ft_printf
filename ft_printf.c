@@ -63,8 +63,8 @@ int	ft_printf(const char *format, ...)
 
 	va_start(ap, format);
 	size = 0;
-	// if (!format)
-	// 	return (0);
+	if (format == NULL)
+		return (0);
 	while (*format)
 	{
 		if (*format == '%')
@@ -119,25 +119,25 @@ ft_printf ("%s", str_null);
 	// int buffer;
 
 	// temp = printf ("printf:   %x\n", x);
-	printf ("printf:   %x\n", x);
-// 	// printf ("%d\n", temp);
-// 	// printf ("\n");
-// 	// buffer = ft_printf ("ft_printf:%x", x);
-	ft_printf ("ft_printf:%x\n", x);
-// 	// printf ("\n");
-// 	// printf ("%d\n", buffer);
+	// printf ("printf:   %x\n", x);
+ 	// printf ("%d\n", temp);
+ 	// printf ("\n");
+ 	// buffer = ft_printf ("ft_printf:%x", x);
+	// ft_printf ("ft_printf:%x\n", x);
+ 	// printf ("\n");
+ 	// printf ("%d\n", buffer);
 // 	printf ("\n");
 // 	printf ("\n");
 
-// 	unsigned int X = 255;
-// 	printf ("printf:   %X\n", X);
-// 	ft_printf ("ft_printf:%X\n", X);
+	unsigned int X = 255;
+	printf ("printf:   %X\n", X);
+	ft_printf ("ft_printf:%X\n", X);
 
-// 	int ptr = 321;
-// 	printf ("%p\n", &ptr);
-// 	ft_printf ("%p\n", &ptr);
-// 	printf ("\n");
-// 	printf ("\n");
+	int ptr = 321;
+	printf ("%p\n", &ptr);
+	ft_printf ("%p\n", &ptr);
+	printf ("\n");
+	printf ("\n");
 
 	unsigned int uns = 234;
 	printf ("%u\n", uns);
@@ -145,8 +145,8 @@ ft_printf ("%s", str_null);
 	printf ("\n");
 	printf ("\n");
 
-	printf ("printf:   %d %u %c %s %%\n", nbr, uns, c, str);
-	ft_printf("ft_printf:%d %u %c %s %%\n", nbr, uns, c, str);
+	printf ("printf:   %d %u %c %s %p %%\n", nbr, uns, c, str, &ptr);
+	ft_printf("ft_printf:%d %u %c %s %p %%\n", nbr, uns, c, str, &ptr);
 	printf ("\n");
 }
 
