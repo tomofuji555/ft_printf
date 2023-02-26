@@ -3,26 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tofujiwa <tofujiwa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/24 20:58:38 by marvin            #+#    #+#             */
-/*   Updated: 2023/02/24 20:58:38 by marvin           ###   ########.fr       */
+/*   Created: 2023/02/26 17:09:02 by tofujiwa          #+#    #+#             */
+/*   Updated: 2023/02/26 17:09:02 by tofujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int  nbr_count (int nb)
+static ssize_t	nbr_count (int nb)
 {
-    int size;
+	int		size;
+	long	n;
 
-    size = 0;
-    while (nb > 0)
-    {
-        nb = nb / 10;
-        size++;
-    }
-    return (size);
+	n = nb;
+	size = 0;
+	if (n < 0)
+	{
+		size++;
+		n *= -1;
+	}
+	while (n > 0)
+	{
+		n = n / 10;
+		size++;
+	}
+	return (size);
 }
 
 static void	ft_sub_putnbr (int	nb)
@@ -44,12 +51,14 @@ static void	ft_sub_putnbr (int	nb)
 		ft_putchar(n + '0');
 }
 
-int ft_putnbr (int  nb)
+ssize_t ft_putnbr (int nb)
 {
-    int size;
+	int size;
 
-    size = 0;
-    size += nbr_count (nb);
-    ft_sub_putnbr (nb);
-    return (size);
+	size = 0;
+	if (nb == 0)
+		size++;
+	size += nbr_count (nb);
+	ft_sub_putnbr (nb);
+	return (size);
 }

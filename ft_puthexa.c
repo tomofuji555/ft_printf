@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_puthexa.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tofujiwa <tofujiwa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/24 20:32:57 by marvin            #+#    #+#             */
-/*   Updated: 2023/02/24 20:32:57 by marvin           ###   ########.fr       */
+/*   Created: 2023/02/26 17:09:28 by tofujiwa          #+#    #+#             */
+/*   Updated: 2023/02/26 17:09:28 by tofujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	hexa_counter (unsigned int num)
+static ssize_t	hexa_counter (unsigned int num)
 {
-	int			size;
+	size_t			size;
 	
 	size = 0;
 	while (num > 0)
@@ -27,7 +27,7 @@ static int	hexa_counter (unsigned int num)
 
 static void	ft_sub_puthexa(unsigned int num)
 {
-	char    c;
+	char	c;
 
 	c = 0;
 	if (num > 0)
@@ -41,11 +41,13 @@ static void	ft_sub_puthexa(unsigned int num)
 	}
 }
 
-int	ft_puthexa (unsigned int num)
+ssize_t	ft_puthexa (unsigned int num)
 {
 	int size;
 		
 	size = 0;
+	if (num == 0)
+		size += write (1, "0", 1);
 	size += hexa_counter (num);
 	ft_sub_puthexa (num);
 	return (size);

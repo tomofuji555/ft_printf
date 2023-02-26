@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putpointer.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tofujiwa <tofujiwa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 14:55:53 by tofujiwa          #+#    #+#             */
-/*   Updated: 2023/02/25 22:49:00 by marvin           ###   ########.fr       */
+/*   Updated: 2023/02/26 17:07:30 by tofujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ int	ft_putpointer (uintptr_t point)
 {
 	int size;
 
-	// if (point < 0)
-		
 	size = 0;
 	size += write (1, "0x", 2);
+	if (point == 0)
+		size += write (1, "0", 1);
 	size += point_counter (point);
 	ft_sub_putpointer (point);
 	return (size);

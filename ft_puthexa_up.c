@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_puthexa_up.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tofujiwa <tofujiwa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/24 20:46:20 by marvin            #+#    #+#             */
-/*   Updated: 2023/02/24 20:46:20 by marvin           ###   ########.fr       */
+/*   Created: 2023/02/26 17:09:19 by tofujiwa          #+#    #+#             */
+/*   Updated: 2023/02/26 17:09:19 by tofujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	hexa_up_counter (unsigned int num)
+static ssize_t	hexa_up_counter (unsigned int num)
 {
-	int	size;
+	size_t	size;
 	
 	size = 0;
 	while (num > 0)
@@ -27,7 +27,7 @@ static int	hexa_up_counter (unsigned int num)
 
 static void	ft_sub_puthexa_up(unsigned int num)
 {
-	char    c;
+	char	c;
 
 	c = 0;
 	if (num > 0)
@@ -41,11 +41,13 @@ static void	ft_sub_puthexa_up(unsigned int num)
 	}
 }
 
-int	ft_puthexa_up (unsigned int num)
+ssize_t	ft_puthexa_up (unsigned int num)
 {
 	int size;
 		
 	size = 0;
+	if (num == 0)
+		size += write (1, "0", 1);
 	size += hexa_up_counter (num);
 	ft_sub_puthexa_up (num);
 	return (size);

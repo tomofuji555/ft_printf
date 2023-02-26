@@ -3,26 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putuns.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tofujiwa <tofujiwa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/24 20:50:59 by marvin            #+#    #+#             */
-/*   Updated: 2023/02/24 20:50:59 by marvin           ###   ########.fr       */
+/*   Created: 2023/02/26 17:10:04 by tofujiwa          #+#    #+#             */
+/*   Updated: 2023/02/26 17:10:04 by tofujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int  uns_count (unsigned int num)
+static int 	uns_count (unsigned int num)
 {
-    int size;
+	int				size;
+	unsigned long	n;
 
-    size = 0;
-    while (num > 0)
-    {
-        num = num / 16;
-        size++;
-    }
-    return (size);
+	size = 0;
+	n = num;
+	while (n > 0)
+	{
+		n = n / 10;
+		size++;
+	}
+	return (size);
 }
 
 static void	ft_sub_uns(unsigned int num)
@@ -41,10 +43,12 @@ static void	ft_sub_uns(unsigned int num)
 
 int ft_putuns (unsigned int num)
 {
-    int size;
+	int	size;
 
-    size = 0;
-    size += uns_count (num);
-    ft_sub_uns (num);
-    return (size);
+	size = 0;
+	if (num == 0)
+		size++;
+	size += uns_count (num);
+	ft_sub_uns (num);
+	return (size);
 }
