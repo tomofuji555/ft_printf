@@ -14,8 +14,8 @@
 
 static ssize_t	nbr_count(int nb)
 {
-	int		size;
-	long	n;
+	ssize_t		size;
+	long		n;
 
 	n = nb;
 	size = 0;
@@ -53,7 +53,7 @@ static void	ft_sub_putnbr(int nb)
 
 ssize_t	ft_putnbr(int nb)
 {
-	size_t	size;
+	ssize_t	size;
 
 	size = 0;
 	if (nb == 0)

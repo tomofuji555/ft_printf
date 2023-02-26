@@ -14,7 +14,7 @@
 
 static ssize_t	hexa_up_counter(unsigned int num)
 {
-	size_t	size;
+	ssize_t	size;
 
 	size = 0;
 	while (num > 0)
@@ -43,7 +43,7 @@ static void	ft_sub_puthexa_up(unsigned int num)
 
 ssize_t	ft_puthexa_up(unsigned int num)
 {
-	size_t	size;
+	ssize_t	size;
 
 	size = 0;
 	if (num == 0)

@@ -14,7 +14,7 @@
 
 static ssize_t	uns_count(unsigned int num)
 {
-	size_t			size;
+	ssize_t			size;
 	unsigned long	n;
 
 	size = 0;
@@ -43,7 +43,7 @@ static void	ft_sub_uns(unsigned int num)
 
 ssize_t	ft_putuns(unsigned int num)
 {
-	int	size;
+	ssize_t	size;
 
 	size = 0;
 	if (num == 0)

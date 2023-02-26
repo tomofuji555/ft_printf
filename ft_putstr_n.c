@@ -14,7 +14,7 @@
 
 ssize_t	ft_putstr_n(char *str)
 {
-	int	size;
+	ssize_t	size;
 
 	size = 0;
 	if (str == NULL)

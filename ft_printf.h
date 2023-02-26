@@ -21,7 +21,6 @@
 # include <limits.h>
 
 size_t	ft_putchar(unsigned char c);
-ssize_t	ft_putpercent(unsigned int c);
 int		ft_printf(const char *format, ...);
 ssize_t	ft_putpointer(uintptr_t point);
 ssize_t	ft_puthexa(unsigned int num);
