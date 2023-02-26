@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	ft_putpercent(unsigned int c)
+ssize_t	ft_putpercent(unsigned int c)
 {
 	if (c == '%')
 	{

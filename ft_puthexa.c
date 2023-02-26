@@ -12,10 +12,10 @@
 
 #include "ft_printf.h"
 
-static ssize_t	hexa_counter (unsigned int num)
+static ssize_t	hexa_counter(unsigned int num)
 {
 	size_t			size;
-	
+
 	size = 0;
 	while (num > 0)
 	{
@@ -35,16 +35,16 @@ static void	ft_sub_puthexa(unsigned int num)
 		ft_sub_puthexa (num / 16);
 		c = (num % 16);
 		if (c >= 0 && c <= 9)
-			ft_putchar (c + '0'); 
+			ft_putchar (c + '0');
 		else if (10 <= c && c <= 16)
 			ft_putchar (c - 10 + 'a');
 	}
 }
 
-ssize_t	ft_puthexa (unsigned int num)
+ssize_t	ft_puthexa(unsigned int num)
 {
-	int size;
-		
+	size_t	size;
+
 	size = 0;
 	if (num == 0)
 		size += write (1, "0", 1);

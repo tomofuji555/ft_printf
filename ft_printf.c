@@ -5,39 +5,39 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 17:49:13 by tofujiwa            #+#    #+#             */
-/*   Updated: 2023/02/13 17:49:13 by tofujiwa           ###   ########.fr       */
+/*   Created: 2023/02/13 17:49:13 by tofujiwa            #+#    #+#           */
+/*   Updated: 2023/02/13 17:49:13 by tofujiwa           ###   ########.fr     */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar (unsigned char c)
+size_t	ft_putchar(unsigned char c)
 {
 	write (1, &c, 1);
 	return (1);
 }
 
-static int	judge_format(va_list ap, const char *c)
+static ssize_t	judge_format(va_list ap, const char *c)
 {
 	int	size;
 
 	size = 0;
 	if (*c == 'c')
 		size += ft_putchar(va_arg (ap, int));
-    else if (*c == 's')
+	else if (*c == 's')
 		size += ft_putstr_n(va_arg (ap, char *));
 	else if (*c == 'd' || *c == 'i')
 		size += ft_putnbr(va_arg (ap, int));
-    else if (*c == 'p')
+	else if (*c == 'p')
 		size += ft_putpointer((uintptr_t)va_arg(ap, void *));
-    else if (*c == 'u')
+	else if (*c == 'u')
 		size += ft_putuns(va_arg (ap, unsigned int));
 	else if (*c == 'x')
 		size += ft_puthexa(va_arg (ap, unsigned int));
 	else if (*c == 'X')
 		size += ft_puthexa_up(va_arg (ap, unsigned int));
-    else if (*c == '%')
+	else if (*c == '%')
 		size += ft_putpercent(*c);
 	return (size);
 }
@@ -46,11 +46,11 @@ int	ft_printf(const char *format, ...)
 {
 	va_list	ap;
 	int		size;
-	char 	*c;
+	char	*c;
 
 	va_start(ap, format);
 	size = 0;
-	while (*format)
+	while (*format && size < INT_MAX)
 	{
 		if (*format == '%')
 		{
@@ -64,6 +64,8 @@ int	ft_printf(const char *format, ...)
 		}
 		format++;
 	}
+	if (size > INT_MAX)
+		return (-1);
 	va_end(ap);
 	return (size);
 }
@@ -106,12 +108,12 @@ int	ft_printf(const char *format, ...)
 
 	// temp = printf ("printf:   %x\n", x);
 	// printf ("printf:   %x\n", x);
- 	// printf ("%d\n", temp);
- 	// printf ("\n");
- 	// buffer = ft_printf ("ft_printf:%x", x);
+	// printf ("%d\n", temp);
+	// printf ("\n");
+	// buffer = ft_printf ("ft_printf:%x", x);
 	// ft_printf ("ft_printf:%x\n", x);
- 	// printf ("\n");
- 	// printf ("%d\n", buffer);
+	// printf ("\n");
+	// printf ("%d\n", buffer);
 // 	printf ("\n");
 // 	printf ("\n");
 
@@ -151,8 +153,6 @@ int	ft_printf(const char *format, ...)
 // 	printf ("%d\n", x);
 // 	printf ("%d\n", y);
 // }
-
-#include <limits.h>
 
 // int	main(void)
 // {

@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-static ssize_t	nbr_count (int nb)
+static ssize_t	nbr_count(int nb)
 {
 	int		size;
 	long	n;
@@ -32,7 +32,7 @@ static ssize_t	nbr_count (int nb)
 	return (size);
 }
 
-static void	ft_sub_putnbr (int	nb)
+static void	ft_sub_putnbr(int nb)
 {
 	long	n;
 
@@ -51,9 +51,9 @@ static void	ft_sub_putnbr (int	nb)
 		ft_putchar(n + '0');
 }
 
-ssize_t ft_putnbr (int nb)
+ssize_t	ft_putnbr(int nb)
 {
-	int size;
+	size_t	size;
 
 	size = 0;
 	if (nb == 0)

@@ -6,16 +6,16 @@
 /*   By: tofujiwa <tofujiwa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 14:55:53 by tofujiwa          #+#    #+#             */
-/*   Updated: 2023/02/26 17:07:30 by tofujiwa         ###   ########.fr       */
+/*   Updated: 2023/02/26 20:28:25 by tofujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	point_counter (uintptr_t point)
+static ssize_t	point_counter(uintptr_t point)
 {
-	int	size;
-	
+	size_t	size;
+
 	size = 0;
 	while (point > 0)
 	{
@@ -25,7 +25,7 @@ static int	point_counter (uintptr_t point)
 	return (size);
 }
 
-static void	ft_sub_putpointer (uintptr_t point)
+static void	ft_sub_putpointer(uintptr_t point)
 {
 	char	c;
 
@@ -41,9 +41,9 @@ static void	ft_sub_putpointer (uintptr_t point)
 	}
 }
 
-int	ft_putpointer (uintptr_t point)
+ssize_t	ft_putpointer(uintptr_t point)
 {
-	int size;
+	size_t	size;
 
 	size = 0;
 	size += write (1, "0x", 2);
