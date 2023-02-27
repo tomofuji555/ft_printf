@@ -137,33 +137,3 @@ int	ft_printf(const char *format, ...)
 // 	ft_printf("ft_printf:%d %u %c %s %p %%\n", nbr, uns, c, str, &ptr);
 // 	printf ("\n");
 // }
-
-// int main ()
-// {
-	// printf (" NULL %s NULL ", NULL);
-	// ft_printf (" NULL %s NULL ", NULL);
-
-// 	char *str = "aiueo";
-// 	int z = printf ("%s\n", str);
-// 	printf ("%d\n", z);
-
-// 	int	ptr = 567;
-// 	int x = printf (" %p \n", &ptr);
-// 	int y = ft_printf (" %p ", &ptr);
-// 	printf ("%d\n", x);
-// 	printf ("%d\n", y);
-// }
-
-// int	main(void)
-// {
-// 	int	len1;
-// 	int	len2;
-
-	// len1 = ft_printf("%d", -9223372036854775808);
-	// printf(" %d", len1);
-	// len2 = printf("%u", -9223372036854775808);
-	// printf(" %d", len2);
-
-// 	len1 = printf ("%x", 0);
-// 	printf (" %d", len1);
-// }

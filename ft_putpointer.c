@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 14:55:53 by tofujiwa          #+#    #+#             */
-/*   Updated: 2023/02/27 00:32:50 by marvin           ###   ########.fr       */
+/*   Updated: 2023/02/27 23:14:14 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,10 @@ ssize_t	ft_putpointer(uintptr_t point)
 	size += write (1, "0x", 2);
 	if (point == 0)
 		size += write (1, "0", 1);
-	size += point_counter (point);
-	ft_sub_putpointer (point);
+	else
+	{
+		size += point_counter (point);
+		ft_sub_putpointer (point);
+	}
 	return (size);
 }

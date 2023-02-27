@@ -47,8 +47,13 @@ ssize_t	ft_putuns(unsigned int num)
 
 	size = 0;
 	if (num == 0)
-		size++;
-	size += uns_count (num);
-	ft_sub_uns (num);
+	{
+		size += write (1, "0", 1);
+	}
+	else
+	{
+		size += uns_count (num);
+		ft_sub_uns (num);
+	}
 	return (size);
 }
