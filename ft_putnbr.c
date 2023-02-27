@@ -57,9 +57,7 @@ ssize_t	ft_putnbr(int nb)
 
 	size = 0;
 	if (nb == 0)
-	{
 		size += write (1, "0", 1);
-	}
 	else
 	{
 		size += nbr_count (nb);

@@ -47,9 +47,7 @@ ssize_t	ft_putuns(unsigned int num)
 
 	size = 0;
 	if (num == 0)
-	{
 		size += write (1, "0", 1);
-	}
 	else
 	{
 		size += uns_count (num);
