@@ -12,10 +12,9 @@
 
 #include "ft_printf.h"
 
-size_t	ft_putchar(unsigned char c)
+ssize_t	ft_putchar(unsigned char c)
 {
-	write (1, &c, 1);
-	return (1);
+	return (write (1, &c, 1));
 }
 
 static ssize_t	judge_format(va_list *ap, const char *c)
@@ -55,7 +54,7 @@ int	ft_printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			size += judge_format(ap, format);
+			size += judge_format(&ap, format);
 		}
 		else
 		{

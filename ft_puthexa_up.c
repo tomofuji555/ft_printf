@@ -47,10 +47,10 @@ ssize_t	ft_puthexa_up(unsigned int num)
 
 	size = 0;
 	if (num == 0)
-		size += write (1, "0", 1);
+		size = write (1, "0", 1);
 	else
 	{
-		size += hexa_up_counter (num);
+		size = hexa_up_counter (num);
 		ft_sub_puthexa_up (num);
 	}
 	return (size);

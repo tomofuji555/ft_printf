@@ -19,7 +19,7 @@ ssize_t	ft_putstr_n(char *str)
 	size = 0;
 	if (str == NULL)
 	{
-		size += write (1, "(null)", 6);
+		size = write (1, "(null)", 6);
 		return (size);
 	}
 	while (*str)
